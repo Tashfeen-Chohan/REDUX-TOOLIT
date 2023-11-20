@@ -4,9 +4,11 @@ import { BiSolidBookContent, BiSolidCategory } from "react-icons/bi";
 import { MdSubtitles } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { createPost } from "../features/postSlice";
+import { useNavigate } from "react-router-dom";
 
 const Create = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const [post, setPost] = useState({
     title: "",
     author: "",
@@ -30,6 +32,7 @@ const Create = () => {
   function handleSubmit(e) {
     e.preventDefault()
     dispatch(createPost(post))
+    navigate("/")
     setPost({
       title: "",
       author: "",
@@ -55,6 +58,7 @@ const Create = () => {
               type="text"
               placeholder="Post Title"
               name="title"
+              autoFocus={true}
               value={title}
               onChange={handleChange}
               className="py-[1px] px-2 border-b-2 border-black w-full"

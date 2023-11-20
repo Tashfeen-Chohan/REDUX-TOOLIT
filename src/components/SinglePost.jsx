@@ -30,7 +30,12 @@ const SinglePost = () => {
           >
             Back
           </button>
-          <button className="bg-[#FFC436] py-1 px-3 rounded shadow-xl">
+          <button
+            onClick={() => {
+              navigate(`/editPost/${id}`);
+            }}
+            className="bg-[#FFC436] py-1 px-3 rounded shadow-xl"
+          >
             Update
           </button>
           <button

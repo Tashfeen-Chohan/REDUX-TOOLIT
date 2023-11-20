@@ -15,8 +15,6 @@ const Read = () => {
   const [id, setId] = useState();
   const navigate = useNavigate();
 
-  
-
   const allPosts = posts.map((post) => (
     <section
       key={post.id}
@@ -58,8 +56,8 @@ const Read = () => {
   return (
     <div className="flex justify-center items-center flex-col mt-7">
       <h1 className="font-bold text-2xl mb-5 md:text-3xl">ALL POSTS</h1>
-      <div className="grid grid-cols-1 w-full md:max-w-5xl md:grid-cols-2 md:mx-auto md:mt-8">
-        {allPosts}
+      <div className={"grid grid-cols-1 w-full md:max-w-5xl md:grid-cols-2 md:mx-auto md:mt-8"}>
+        {allPosts.length === 0 ? <p className="text-center text-red-600 font-bold ">No posts found!</p> : allPosts}
       </div>
     </div>
   );
