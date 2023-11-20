@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  deletePost,
   readPosts,
   selectAllPosts,
   selectLoading,
@@ -41,7 +42,7 @@ const Read = () => {
         <button className="bg-[#FFC436] py-1 px-3 rounded shadow-xl">
           Update
         </button>
-        <button className="bg-[#F24C3D] text-slate-100 py-1 px-3 rounded shadow-xl">
+        <button onClick={() => dispatch(deletePost(post.id))} className="bg-[#F24C3D] text-slate-100 py-1 px-3 rounded shadow-xl">
           Delete
         </button>
       </div>

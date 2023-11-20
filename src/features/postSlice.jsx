@@ -24,6 +24,16 @@ export const readPosts = createAsyncThunk("readPosts", async () => {
   }
 })
 
+// DELETE POST ACTION
+export const deletePost = createAsyncThunk("deletePost", async (id) => {
+  try {
+    const response = await axios.delete(`https://655af2b9ab37729791a85714.mockapi.io/CRUD/${id}`)
+    return response.data
+  } catch (error) {
+    console.log(error.message)
+  }
+})
+
 export const postSlice = createSlice({
   name: "posts",
   initialState: {
@@ -64,6 +74,24 @@ export const postSlice = createSlice({
       })
 
       .addCase(readPosts.rejected, (state, action) => {
+        state.loading = false
+        state.error = action.payload
+      })
+
+      // DELETE POST PROMISE HANDLING
+      .addCase(deletePost.pending, (state) => {
+        state.loading = true;
+      })
+
+      .addCase(deletePost.fulfilled, (state, action) => {
+        state.loading = false
+        const {id} = action.payload
+        if (id) {
+          state.posts = state.posts.filter(post => post.id !== id)
+        }
+      })
+
+      .addCase(deletePost.rejected, (state, action) => {
         state.loading = false
         state.error = action.payload
       })
