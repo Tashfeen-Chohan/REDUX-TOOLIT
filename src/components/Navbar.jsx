@@ -1,8 +1,11 @@
 import React, {useState} from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { selectAllPosts } from "../features/postSlice";
 
 export default function Navbar() {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
+  const postsLength = useSelector(selectAllPosts)
   
   return (
     <>
@@ -38,14 +41,11 @@ export default function Navbar() {
             id="example-navbar-danger"
           >
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
-              <li  className="px-3 py-2 flex items-center text-xs md:text-lg uppercase  leading-snug text-white hover:opacity-75">
-                <Link to={"/"}>HOME</Link>
-              </li>
               <li className="px-3 py-2 flex items-center text-xs md:text-lg uppercase leading-snug text-white hover:opacity-75">
                 <Link to={"/create"}>CREATE</Link>
               </li>
               <li className="px-3 py-2 flex items-center text-xs md:text-lg uppercase leading-snug text-white hover:opacity-75">
-                POSTS
+                <Link to={"/"}>POSTS ({postsLength.length})</Link>
               </li>
             </ul>
             
