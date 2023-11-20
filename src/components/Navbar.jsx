@@ -42,7 +42,7 @@ export default function Navbar() {
                 <Link to={"/"}>HOME</Link>
               </li>
               <li className="px-3 py-2 flex items-center text-xs md:text-lg uppercase leading-snug text-white hover:opacity-75">
-                CREATE
+                <Link to={"/create"}>CREATE</Link>
               </li>
               <li className="px-3 py-2 flex items-center text-xs md:text-lg uppercase leading-snug text-white hover:opacity-75">
                 POSTS

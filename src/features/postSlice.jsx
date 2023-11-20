@@ -71,3 +71,5 @@ export const postSlice = createSlice({
 });
 
 export default postSlice.reducer;
+export const selectAllPosts = (state) => state.posts.posts
+export const selectLoading = (state) => state.posts.loading
