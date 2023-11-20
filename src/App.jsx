@@ -5,6 +5,7 @@ import Navbar from './components/Navbar'
 import Create from './components/Create'
 import Read from './components/Read'
 import SinglePost from './components/SinglePost'
+import UpdatePost from './components/UpdatePost'
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Route path='/' element={<Read/>}/>
         <Route path='/create' element={<Create/>}/>
         <Route path='/singlePost/:id' element={<SinglePost/>}/>
+        <Route path='/editPost/:id' element={<UpdatePost/>}/>
       </Routes>
     </>
   )

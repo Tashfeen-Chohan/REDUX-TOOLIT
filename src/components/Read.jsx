@@ -39,7 +39,9 @@ const Read = () => {
         >
           View
         </button>
-        <button className="bg-[#FFC436] py-1 px-3 rounded shadow-xl">
+        <button onClick={() => {
+          navigate(`/editPost/${post.id}`)
+        }} className="bg-[#FFC436] py-1 px-3 rounded shadow-xl">
           Update
         </button>
         <button onClick={() => dispatch(deletePost(post.id))} className="bg-[#F24C3D] text-slate-100 py-1 px-3 rounded shadow-xl">

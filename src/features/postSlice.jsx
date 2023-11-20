@@ -34,6 +34,16 @@ export const deletePost = createAsyncThunk("deletePost", async (id) => {
   }
 })
 
+// UPDATE POST ACTION
+export const updatePost = createAsyncThunk("updatePost", async (data) => {
+  try {
+    const response = await axios.put(`https://655af2b9ab37729791a85714.mockapi.io/CRUD/${data.id}`, data)
+    return response.data
+  } catch (error) {
+    console.log(error.message)
+  }
+})
+
 export const postSlice = createSlice({
   name: "posts",
   initialState: {
