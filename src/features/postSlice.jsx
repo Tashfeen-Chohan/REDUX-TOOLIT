@@ -4,12 +4,12 @@ import axios from "axios";
 // CREATE POST ACTION
 export const createPost = createAsyncThunk(
   "createPost",
-  async (data, { rejectWithValue }) => {
+  async (data) => {
     try {
       const resp = await axios.post("https://655af2b9ab37729791a85714.mockapi.io/CRUD", data)
       return resp.data
     } catch (error) {
-      rejectWithValue(error.message)
+      console.log(error.message)
     }
   }
 );

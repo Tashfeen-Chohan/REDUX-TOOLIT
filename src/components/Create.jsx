@@ -40,7 +40,6 @@ const Create = () => {
       category: ""
     })
   }
-
   
   return (
     <div className="flex justify-center items-center min-h-screen w-full">

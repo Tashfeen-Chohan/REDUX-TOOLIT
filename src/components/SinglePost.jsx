@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { deletePost, selectAllPosts } from "../features/postSlice";
 
+
 const SinglePost = () => {
   const { id } = useParams();
   const posts = useSelector(selectAllPosts);

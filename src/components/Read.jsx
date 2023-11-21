@@ -9,6 +9,7 @@ import {
 } from "../features/postSlice";
 import { useNavigate } from "react-router-dom";
 
+
 const Read = () => {
   const dispatch = useDispatch();
   const loading = useSelector(selectLoading);
@@ -16,6 +17,7 @@ const Read = () => {
   const navigate = useNavigate();
   const posts = useSelector(selectAllPosts);
   const [search, setSearch] = useState("");
+
 
   const filterPosts = posts.filter((post) => {
     if (search.length === 0){
@@ -60,7 +62,9 @@ const Read = () => {
           Update
         </button>
         <button
-          onClick={() => dispatch(deletePost(post.id))}
+          onClick={() => {
+            dispatch(deletePost(post.id))
+          }}
           className="bg-[#F24C3D] text-slate-100 py-1 px-3 rounded shadow-xl"
         >
           Delete
