@@ -50,10 +50,13 @@ export const postSlice = createSlice({
     posts: [],
     loading: false,
     error: null,
+    search: []
   },
 
   reducers: {
-
+    searchPost: (action, state) => {
+      state.search = action.payload
+    }
   },
 
   extraReducers(builder){
@@ -105,9 +108,27 @@ export const postSlice = createSlice({
         state.loading = false
         state.error = action.payload
       })
+
+      // UPDATE POST PROMISE HANDLING
+      // .addCase(updatePost.pending, (state) => {
+      //   state.loading = true
+      // })
+
+      // .addCase(updatePost.fulfilled, (state, action) => {
+      //   state.loading = false
+      //   state.posts = state.posts.map((post) => {
+      //     post.id === action.payload.id ? action.payload : post
+      //   })
+      // })
+
+      // .addCase(updatePost.rejected, (state, action) => {
+      //   state.loading = false
+      //   state.error = action.payload
+      // })
   }
 });
 
 export default postSlice.reducer;
+export const { searchPost } = postSlice.actions
 export const selectAllPosts = (state) => state.posts.posts
 export const selectLoading = (state) => state.posts.loading
